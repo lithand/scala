@@ -21,7 +21,7 @@ abstract class Element {
     if (h < height) return this
     else {
       val top = elem(' ', width, (h - height) / 2)
-      var bot = elem(' ', width, h - height - top.height)
+      val bot = elem(' ', width, h - height - top.height)
       top above this above bot
     }
 
