@@ -33,13 +33,15 @@ class ExprFormatter {
 
   private def format(e: Expr, enclPrec: Int): Element =
     e match {
-      case Var(name) => elem(name)
+      case Var(name) =>
+        elem(name)
       case Number(num) =>
         def stripDot(s: String) =
           if (s endsWith ".0") s.substring(0, s.length - 2)
           else s
-        elem(stripDot(num.toString()))
-      case UnOp(op, arg) => elem(op) beside format(arg, unaryPrecedence)
+        elem(stripDot(num.toString))
+      case UnOp(op, arg) =>
+        elem(op) beside format(arg, unaryPrecedence)
       case BinOp("/", left, right) =>
         val top = format(left, fractionPrecedence)
         val bot = format(right, fractionPrecedence)
