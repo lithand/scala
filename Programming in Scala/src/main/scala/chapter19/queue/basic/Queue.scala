@@ -1,4 +1,4 @@
-package chapter19.queue
+package chapter19.queue.basic
 
 class Queue[T](
   private val leading: List[T],
